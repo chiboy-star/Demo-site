@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --stone-50: #F5F4F0;
+  --surface: #FFFFFF;
+  --ink: #1D1D1F;
+  --brass-600: #8A6A3B;
+  --sage-600: #5E7A6A;
+  --graphite-500: #6E6E73;
+  --hairline: #D2D2D7;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--stone-50);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--stone-50);
+  color: var(--ink);
+}
+
+/* Custom focus ring matching design tokens */
+:focus-visible {
+  outline: 2px solid var(--brass-600);
+  outline-offset: 2px;
+}
+
+/* Custom utility for animated text link underline */
+.link-underlined {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--brass-600);
+  min-height: 44px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link-underlined::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: 8px;
+  left: 0;
+  background-color: var(--brass-600);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.link-underlined:hover::after,
+.link-underlined:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
